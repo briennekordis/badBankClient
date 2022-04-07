@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import { Card } from "react-bootstrap";
+import { API_URI } from "./components";
 
 
 function CreateAccount() {
@@ -43,7 +44,7 @@ function CreateAccount() {
         if (!validate(name, 'name')) return;
         if (!validate(email, 'email')) return;
         if (!validatePassword(password, 'password')) return;
-        const url = `/account/create/${name}/${email}/${password}`;
+        const url = `${API_URI}/account/create/${name}/${email}/${password}`;
         (async () => {
             var res  = await fetch(url, {method: 'POST'});
             if (res.status === 200) {

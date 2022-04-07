@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Card } from "react-bootstrap";
+import { API_URI } from "./components";
 
 function Deposit() {
   const [show, setShow] = useState(true);
@@ -25,7 +26,7 @@ function Deposit() {
   }, []);
 
   function getAccount() {
-    const url = `/account/find/${email}`;
+    const url = `${API_URI}/account/find/${email}`;
     (async () => {
       var res = await fetch(url);
       var data = await res.json();
@@ -54,7 +55,7 @@ function Deposit() {
   function handleSubmit() {
     if (!validate(deposit) || (!negValidate(deposit)))
       return;
-    const url = `/account/update/${email}/${deposit}`;
+    const url = `${API_URI}/account/update/${email}/${deposit}`;
     (async () => {
       var res = await fetch(url, { method: 'PUT' });
       var data = await res.json();

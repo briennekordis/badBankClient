@@ -15,3 +15,5 @@ export {
     Deposit,
     Withdraw
 }
+
+export const API_URI = 'https://badbankserver.herokuapp.com';

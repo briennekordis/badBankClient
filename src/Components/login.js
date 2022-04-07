@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Card } from "react-bootstrap";
+import { API_URI } from "./components";
 
 function Login(props) {
   const [show, setShow] = useState(true);
@@ -32,7 +33,7 @@ function Login(props) {
   function handleLogin() {
     if (!validate(email, 'email')) return;
     if (!validate(password, 'password')) return;
-    const url = `/account/login/${email}/${password}`;
+    const url = `${API_URI}/account/login/${email}/${password}`;
     (async () => {
       var res = await fetch(url, { method: 'POST' });
       if (res.status === 200) {
