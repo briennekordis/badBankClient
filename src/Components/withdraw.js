@@ -58,9 +58,9 @@ function handleSubmit() {
    (async () => {
      var res = await fetch(url, { method: 'PUT' });
      var data = await res.json();
+     getAccount();
+     setShow(false);  
    })();
-   getAccount();
-   setShow(false);
  };
 
   function clearForm(){
